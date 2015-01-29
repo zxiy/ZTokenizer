@@ -1,14 +1,14 @@
 # ZTokenizer
 
-ZTokenizer��һ���򵥵ģ������ֵ�ƥ������ķִ�����
+ZTokenizer是一个简单的，基于字典匹配的中文分词器。
 
-�ִ�������ģʽ������ģʽ����������ģʽ����ʹ��ʱ��������ȷ����
+分词有两种模式，智能模式和搜索引擎模式，在使用时传参数来确定。
 
-����ģʽ�Ὣ����ֱ���з֣���������ģʽ������еĵ���ƥ���������������
+智能模式会将句子直接切分，搜索引擎模式会把所有的单词匹配结果都输出出来。
 
-�ִ������ڲ����뷽ʽΪUnicode��
+分词器的内部编码方式为Unicode。
 
-### ʹ�÷���
+### 使用范例
 
 ```
 #include <iostream>
@@ -19,7 +19,7 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "chs");
-	wstring str = L"���ͷ�װ��Ʒ���޹�˾";
+	wstring str = L"永和服装饰品有限公司";
 
 	ZTokenizer zTokenizer(str, true);
 
@@ -44,10 +44,10 @@ int main()
 	return 0;
 }
 ```
-### �ʵ�����
+### 词典配置
 
-·������3���ʵ䣬�ֱ������ʵ�`main2012.dic`�����ʴʵ�`quantifier.dic`�����δʴʵ�`stopword.dic`��������������������´ʡ�
+路径下有3个词典，分别是主词典`main2012.dic`，量词词典`quantifier.dic`和屏蔽词词典`stopword.dic`，可以在里面随便添加新词。
 
-### ����
+### 其他
 
-���˼·�ο���(IK�ִ���)[https://code.google.com/p/ik-analyzer/]��
+设计思路参考了[IK分词器](https://code.google.com/p/ik-analyzer/)。
